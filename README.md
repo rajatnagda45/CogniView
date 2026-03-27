@@ -131,3 +131,106 @@ Relationships:
 # ⚙️ Setup Instructions
 
 ## 1. Clone Repository
+
+git clone https://github.com/rajatnagda45/CogniView
+cd CogniView
+
+## 2. Install Dependencies
+npm install
+
+## 3. Run Development Server
+npm run dev
+
+Visit:
+http://localhost:3000
+
+---
+
+# 🔐 Environment Variables
+
+Create `.env.local`
+
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+
+---
+
+# 📂 Folder Structure
+
+src/
+├── components/ # UI components (cards, charts, tables)
+├── pages/ # Dashboard pages
+├── hooks/ # Custom hooks (Supabase queries)
+├── lib/ # Supabase client & utils
+├── data/ # CSV / mock data
+└── styles/ # Tailwind styles
+
+---
+
+# 📊 Data Integration
+
+- CSV-based initial data import
+- Supabase tables with relations
+- Real-time updates using subscriptions
+- Dynamic queries using Supabase client
+
+---
+
+# 🚀 Deployment
+
+Frontend:
+- Vercel
+
+Backend:
+- Supabase (hosted)
+
+---
+
+# 🧪 Future Improvements (Roadmap)
+
+- AI-powered predictive analytics
+- Natural language query (Ask your data)
+- Multi-organization dashboards
+- Role-based access control (RBAC)
+- Email notifications & automations
+- Export reports (PDF/Excel)
+- Mobile responsive optimization
+
+---
+
+# 💡 Why This Project Stands Out
+
+- Full-stack SaaS architecture
+- Real-time data using Supabase
+- Clean UI/UX (modern dashboard design)
+- AI integration (high-demand skill)
+- Scalable database design
+- Production-level project structure
+
+---
+
+# 🤝 Contributing
+
+Pull requests are welcome!
+
+Steps:
+1. Fork the repo
+2. Create a feature branch
+3. Commit changes
+4. Submit PR
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+**Rajat Nagda**
+
+---
+
+🚀 Built to demonstrate real-world SaaS development skills and prepare for full-stack development roles.
