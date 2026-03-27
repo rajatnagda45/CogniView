@@ -146,26 +146,6 @@ http://localhost:3000
 
 ---
 
-# 🔐 Environment Variables
-
-Create `.env.local`
-
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-
----
-
-# 📂 Folder Structure
-
-src/
-├── components/ # UI components (cards, charts, tables)
-├── pages/ # Dashboard pages
-├── hooks/ # Custom hooks (Supabase queries)
-├── lib/ # Supabase client & utils
-├── data/ # CSV / mock data
-└── styles/ # Tailwind styles
-
----
 
 # 📊 Data Integration
 
