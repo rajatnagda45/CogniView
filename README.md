@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Cogniview (AI-Powered SaaS Analytics Dashboard)
 
-## Getting Started
+A modern, production-ready analytics dashboard built to simulate a real-world SaaS product with real-time data, advanced analytics, and AI-driven insights.
 
-First, run the development server:
+Built using **React, Tailwind CSS, Supabase (PostgreSQL + Auth + Realtime)** — Cogniview provides a complete business intelligence experience including order management, customer analytics, inventory tracking, and AI-powered insights.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔗 Quick Links
+Overview · Features · Screenshots · Tech Stack · Architecture · Setup · Database · Roadmap
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 📊 Overview
 
-## Learn More
+Cogniview is a full-stack SaaS analytics platform designed to help businesses monitor, analyze, and optimize their operations.
 
-To learn more about Next.js, take a look at the following resources:
+It provides:
+- Real-time dashboards
+- Order & inventory management
+- Customer analytics (CRM)
+- AI-powered business insights
+- Multi-tenant architecture using Supabase
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The goal of this project is to demonstrate **industry-level full-stack skills** with scalable architecture and production-ready features.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+# ⚡ Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📈 Dashboard & Analytics
+- KPI cards (Revenue, Orders, AOV, Repeat Customers)
+- Revenue trends (line charts)
+- Sales by category (donut charts)
+- Activity tracking (last 7 days)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛒 Order Management
+- View all orders with status (Processing, Delivered, Cancelled)
+- Search, filter, and sort orders
+- Order details & tracking system
+- Payment method tracking
+
+## 👥 Customer Analytics (CRM)
+- Customer segmentation (New vs Returning)
+- Customer Lifetime Value (CLV)
+- Top customers leaderboard
+- Customer growth insights
+
+## 📦 Product & Inventory
+- Product performance tracking
+- Inventory management (stock levels)
+- Low stock alerts
+- Category-wise analytics
+
+## 📡 Live Activity Feed
+- Real-time updates (orders, payments, alerts)
+- Timeline-based UI
+- Auto-refresh data using Supabase Realtime
+
+## 📊 Report Builder
+- Drag-and-drop report system (UI ready)
+- Custom analytics widgets
+- Export reports (PDF/CSV - extendable)
+
+## 🧠 AI Insights (High-Demand Feature 🔥)
+- “Revenue increased by X%”
+- “Top performing product”
+- “Best performing city”
+- Smart alerts & predictions (extendable)
+
+## ⚙️ Settings & Profile
+- Profile management
+- Theme-ready UI (dark mode optimized)
+- Scalable settings architecture
+
+---
+
+# 🧰 Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Recharts (data visualization)
+- Framer Motion (animations)
+
+### Backend / Database
+- Supabase (PostgreSQL)
+- Supabase Auth (JWT-based)
+- Supabase Realtime
+
+### Tools
+- Git & GitHub
+- Vercel (deployment)
+- CSV data seeding
+
+---
+
+# 🧠 Architecture
+
+## High-Level Flow
+
+Frontend (React Dashboard)
+        ↓
+Supabase Client (API layer)
+        ↓
+PostgreSQL Database (Tables & Relations)
+        ↓
+Realtime Subscriptions (Live updates)
+
+---
+
+## Database Design
+
+Core Tables:
+- organizations
+- categories
+- products
+- customers
+- orders
+- order_items
+- payments
+
+Relationships:
+- orders → customers
+- orders → order_items → products
+- products → categories
+- all tables → organization (multi-tenant)
+
+---
+
+# ⚙️ Setup Instructions
+
+## 1. Clone Repository
