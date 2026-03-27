@@ -2,16 +2,16 @@
 
 import { Sidebar } from "@/components/layout/Sidebar"
 import { Header } from "@/components/layout/Header"
-import { KPICards } from "@/components/KPICards"
-import { ActivityBarChart } from "@/components/charts/ActivityBarChart"
-import { RevenueAreaChart } from "@/components/charts/RevenueAreaChart"
-import { AssetsPieChart } from "@/components/charts/AssetsPieChart"
-import { ActivityTable } from "@/components/charts/ActivityTable"
 import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabase"
 import type { SalesOrder } from "@/lib/types"
 
-export default function Dashboard() {
+import { PerformanceKPICards } from "@/components/performance/PerformanceKPICards"
+import { LocationChart } from "@/components/performance/LocationChart"
+import { PaymentMethodChart } from "@/components/performance/PaymentMethodChart"
+import { ProductChart } from "@/components/performance/ProductChart"
+
+export default function PerformanceDashboard() {
   const [data, setData] = useState<SalesOrder[]>([]);
   const [filteredData, setFilteredData] = useState<SalesOrder[]>([]);
   const [loading, setLoading] = useState(true);
@@ -19,8 +19,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function load() {
-      // Order by order_date so new orders always show up first, limited to avoid payload overload
-      const { data: orders, error } = await supabase.from('sales_orders').select('*').order('order_date', { ascending: false }).limit(3000);
+      const { data: orders, error } = await supabase.from('sales_orders').select('*');
       if (!error && orders) {
         setData(orders);
         setFilteredData(orders);
@@ -58,7 +57,7 @@ export default function Dashboard() {
           
           {/* Controls */}
           <div className="px-8 pb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center">
-             <h2 className="text-2xl font-bold tracking-tight mb-4 sm:mb-0">Overview</h2>
+             <h2 className="text-2xl font-bold tracking-tight mb-4 sm:mb-0">Performance Overview</h2>
              <div className="flex bg-white dark:bg-[#1C1E2B] rounded-lg p-1 border border-gray-200 dark:border-white/5 shadow-sm dark:shadow-lg">
                 <button 
                    onClick={() => setFilterType("7D")}
@@ -84,20 +83,23 @@ export default function Dashboard() {
           {loading ? (
              <div className="flex-1 flex flex-col items-center justify-center text-gray-500 animate-pulse">
                 <div className="w-8 h-8 rounded-full border-2 border-purple-500 border-t-transparent animate-spin mb-4" />
-                Loading Analytics...
+                Loading Performance Data...
              </div>
           ) : (
              <>
-                <KPICards data={filteredData} />
+                <PerformanceKPICards data={filteredData} />
                 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-8 h-auto pb-4">
-                   <ActivityBarChart data={filteredData} />
-                   <RevenueAreaChart data={filteredData} />
-                   <AssetsPieChart data={filteredData} />
+                   <LocationChart data={filteredData} />
+                   <PaymentMethodChart data={filteredData} />
+                   {/* Product chart spans full width if added separately, or 2 cols inside grid */}
                 </div>
-                
-                <div className="px-8 w-full mt-4">
-                   <ActivityTable data={filteredData} />
+
+                <div className="px-8 w-full mt-4 mb-12">
+                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <ProductChart data={filteredData} />
+                      {/* Third column could be left blank or added another chart, for now product chart spans 2 cols as set in its className */}
+                   </div>
                 </div>
              </>
           )}
